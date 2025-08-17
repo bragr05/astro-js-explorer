@@ -1,0 +1,17 @@
+{
+    "name": "astro-devcontainer",
+    "build": { "dockerfile": "Dockerfile", "context": "." },
+    "forwardPorts": [3000],
+    "workspaceFolder": "/workspace",
+    "remoteUser": "root",
+    "customizations": {
+        "vscode": { "extensions": ["astro-build.astro-vscode"] }
+    },
+    "mounts": [
+        "source=${localWorkspaceFolder},target=/workspace,type=bind",
+        "source=astro-js-explorer-node-modules,target=/workspace/node_modules,type=volume"
+    ],
+    "containerEnv": {
+        "CHOKIDAR_USEPOLLING": "true"
+    }
+}
